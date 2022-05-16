@@ -105,3 +105,6 @@ dist
 
 data
 node_modules
+.DS_Store
+.editorconfig
+.eslintrc.json
