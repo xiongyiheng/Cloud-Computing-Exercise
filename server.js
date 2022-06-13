@@ -45,7 +45,9 @@ app.get('/api', (req, res) => {
       // TODO: Write other API end-points description here like above
       {method: 'POST', path: '/api/books/', description: 'Add a book information into database'},
       {method: 'PUT', path: '/api/books/:id', description: 'Update a book information based upon the specified ID'},
-      {method: 'DELETE', path: '/api/books/:id', description: 'Delete a book based upon the specified ID'}
+      {method: 'DELETE', path: '/api/books/:id', description: 'Delete a book based upon the specified ID'},
+       // TODO: Write other API end-points description here like above
+      {method: 'GET', path: '/api/exercise2', description: 'sends a message group # application deployed using docker back to the user when called the api'}
     ]
   })
 });
@@ -164,10 +166,13 @@ app.delete('/api/books/:id', (req, res) => {
   res.json(deletedBook);
 });
 
-
+// TODO:  Add API end point /api/exercise2
 /**********
  * SERVER *
  **********/
+ app.get('/api/exercise2', (req, res) => {
+  res.send("group 5 application deployed using docker");
+});
 
 // listen on the port 3000
 app.listen(process.env.PORT || 80, () => {
