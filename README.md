@@ -1,2 +1,2 @@
 # Cloud-Computing-Exercise
-(Bi)weekly exercise for course Cloud Computing (IN2073)
+(Bi/Tri) weekly exercise for course Cloud Computing (IN2073)
