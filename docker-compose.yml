@@ -2,22 +2,20 @@ version: '3'
 services:
   server:
     build: ./server
-    image: xiongyiheng/cloudcomputinggroup5:latest
-    container_name: cloudcomputinggroup5
-    depends_on:
-      - "mongodb"
-    environment:
-      - MONGODB_URI=mongodb://mongodb:27017/booksData
+    image: HUB_ID/microservice:server
     ports:
       - "3000:3000"
-    restart: always
-  mongodb:
-    image: mongo:latest
-    container_name: "mongodb"
-    environment:
-      - MONGO_DATA_DIR=/data/db
-    volumes:
-      - ./data/:/data/db
-    ports:
-        - "27017:27017"
+    depends_on:
+      - hello-world-service
+      - product-descp-service
+      - product-price-service
+  hello-world-service:
+    build: ./hello-world-service
+    image: HUB_ID/microservice:hello
+  product-descp-service:
+    build: ./product-descp-service
+    image: HUB_ID/microservice:productdescp
+  product-price-service:
+    build: ./product-price-service
+    image: HUB_ID/microservice:productprice
 
