@@ -6,28 +6,40 @@ module.exports = function (options) {
     this.add('role:product,cmd:getProductURL', productURL);
     this.add('role:product,cmd:getProductName', productName);
 
-
-    //To DO: add the pattern functions and describe the logic inside the function
+    //Describe the logic inside the function
     function productURL(msg, respond) {
-        var res = "";
-        for (let index = 0; index < mockData.length; index++) {
-            const element = mockData[index];
-            if (element['product_id'] == msg.productId) {
-                res = element['product_url']
+
+        var myFoundProduct = '';
+        for(var i=0; i <mockData.length;i++ ) {
+
+            if(mockData[i].product_id == msg.productId ){
+                myFoundProduct = i + 1;
+                break;
             }
         }
-        respond(null, {result: res});
-    }
+        if(myFoundProduct){
+            respond(null, { result: mockData[myFoundProduct - 1].product_url});
+        }
+        else {
+            respond(null, { result: ''});
+        }
 
+    }
+    //Describe the logic inside the function
     function productName(msg, respond) {
-        var res = "";
-        for (let index = 0; index < mockData.length; index++) {
-            const element = mockData[index];
-            if (element['product_id'] == msg.productId) {
-                res = element['product_name'];
+        var myFoundProduct = '';
+        for(var i=0; i <mockData.length;i++ ) {
+
+            if(mockData[i].product_id == msg.productId ){
+                myFoundProduct = i + 1;
+                break;
             }
         }
-        respond(null, {result: res});
+        if(myFoundProduct){
+            respond(null, { result: mockData[myFoundProduct - 1].product_name});
+        }
+        else {
+            respond(null, { result: ''});
+        }
     }
-
 }

@@ -42,14 +42,18 @@ router.use(function(req, res, next) {
 router.get('/', function(req, res) {
     res.json({ message: 'Welcome to Cloud Computing Exercises API!'});
 });
+
+/**
+ * Exercise 4 Route
+ */
+
+
 /**
  * Exercise 3:
  */
-// query params: name & productId
 router.route('/exercise3/:name/:productId')
     .get(function(req, res)
     {
-
         join(
             helloWorldService.sayWelcome(req.params.name),
             productDescpService.getProductURL(req.params.productId),
@@ -70,7 +74,7 @@ router.route('/exercise3/:name/:productId')
     });
 /**
  * REGISTER OUR ROUTES
- * our router is now pointing to /api
+ * our router is now pointing to /exercises
  */
 app.use('/api', router);
 
