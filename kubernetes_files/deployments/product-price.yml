@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: product-price
-          image: xiongyiheng/microservice:product-price
+          image: xiongyiheng/microservice:productprice
           ports:
             - containerPort: 9003
